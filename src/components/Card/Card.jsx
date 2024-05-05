@@ -1,9 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Card = ({data}) => {
   return (
     <div className='col-6 col-lg-3 mb-4'>
-      <a href="pages/adventures/?city=${data.id}" id={data.id}>
+      <Link
+      to={{
+        pathname: '/adventures',
+        search: `?city=${data.id}`,
+      }}
+    >
+    
+      {/* <a href="pages/adventures/?city=${data.id}" id={data.id}> */}
                         <div className="tile">
                          <img  src={data.image} alt={data.city} className="img-fluid" />  
                          <div className="tile-text text-center">
@@ -12,7 +20,7 @@ const Card = ({data}) => {
                     </div>
                     </div>
 
-                  </a>
+                    </Link>
     </div>
   )
 }
